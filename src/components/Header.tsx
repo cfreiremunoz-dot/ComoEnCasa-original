@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from '@/lib/router-compat';
-import { Menu, X } from 'lucide-react';
+import { Menu, Sparkles, X } from 'lucide-react';
 
 const navItems = [
   { to: '/explora', label: 'Explora' },
   { to: '/rutas', label: 'Rutas' },
   { to: '/experiencias', label: 'Experiencias' },
   { to: '/comunidad', label: 'Comunidad' },
+  { to: '/asistente', label: 'Asistente IA', icon: true },
   { to: '/recomendaciones', label: 'Recomendaciones' },
   { to: '/sobre', label: 'Sobre el proyecto' },
 ];
@@ -72,7 +73,7 @@ export function Header() {
                 }`
               }
             >
-              {item.label}
+              {item.icon ? <span className="inline-flex items-center gap-1.5"><Sparkles className="h-3.5 w-3.5" /> {item.label}</span> : item.label}
             </NavLink>
           ))}
         </nav>
@@ -102,7 +103,7 @@ export function Header() {
                   }`
                 }
               >
-                {item.label}
+                {item.icon ? <span className="inline-flex items-center gap-2"><Sparkles className="h-5 w-5" /> {item.label}</span> : item.label}
               </NavLink>
             ))}
           </nav>

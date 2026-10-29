@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { Link } from '@/lib/router-compat';
-import { ArrowDown, ArrowRight, Compass, Heart, Search, Users } from 'lucide-react';
+import { ArrowDown, ArrowRight, Compass, Heart, Search, Sparkles, Users } from 'lucide-react';
 import { SearchBar } from '@/components/SearchBar';
 import { RouteCard } from '@/components/RouteCard';
 import { ExperienceCard } from '@/components/ExperienceCard';
@@ -304,6 +304,37 @@ export function HomePage() {
           </div>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {experiences.slice(0, 3).map((experience) => <ExperienceCard key={experience.id} experience={experience} />)}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-crema-100 py-20 sm:py-28">
+        <div className="container-page">
+          <div className="overflow-hidden rounded-[2rem] bg-granate-800 px-6 py-10 text-crema-100 sm:px-12 sm:py-14">
+            <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
+              <div className="max-w-xl">
+                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-terracota-500 text-crema-100">
+                  <Sparkles className="h-6 w-6" />
+                </span>
+                <h2 className="mt-5 font-serif text-3xl font-semibold leading-tight sm:text-4xl">
+                  Pregúntale al asistente de ComoEnCasa
+                </h2>
+                <p className="mt-4 max-w-lg text-base leading-relaxed text-crema-200">
+                  ¿No sabes por dónde empezar? Dile al asistente qué tipo de plan buscas —gastronomía, un paseo, algo para niños, un rincón secreto— y te recomendará lugares, rutas y experiencias de Sevilla.
+                </p>
+                <Link to="/asistente" className="btn-primary mt-6">
+                  <Sparkles className="h-4 w-4" /> Abrir asistente
+                </Link>
+              </div>
+              <div className="hidden w-full max-w-xs shrink-0 rounded-2xl bg-crema-100/10 p-4 ring-1 ring-crema-100/20 sm:block">
+                <p className="text-xs font-semibold uppercase tracking-wider text-crema-200">Prueba a preguntar</p>
+                <ul className="mt-3 space-y-2.5">
+                  <li className="rounded-lg bg-crema-100/5 px-3 py-2 text-sm text-crema-200">«¿Dónde puedo comer tapeo auténtico?»</li>
+                  <li className="rounded-lg bg-crema-100/5 px-3 py-2 text-sm text-crema-200">«Un plan para ir con niños»</li>
+                  <li className="rounded-lg bg-crema-100/5 px-3 py-2 text-sm text-crema-200">«Rutas a pie por Triana»</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>
