@@ -1,0 +1,169 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ComoEnCasa design system: Sevilla palette (albero, crema, terracota, oliva, granate, tinta). */
+@theme {
+  --color-albero-50: #faf7f0;
+  --color-albero-100: #f3ecdd;
+  --color-albero-200: #e8dcc8;
+  --color-albero-300: #dcc9a8;
+  --color-albero-400: #cdb284;
+  --color-albero-500: #bd9b63;
+  --color-albero-600: #a8844f;
+  --color-albero-700: #886a40;
+  --color-albero-800: #6b5434;
+  --color-albero-900: #4d3c26;
+  --color-crema-50: #fefdfb;
+  --color-crema-100: #faf6ef;
+  --color-crema-200: #f5ede0;
+  --color-crema-300: #ede0cc;
+  --color-crema-400: #e0cdb0;
+  --color-crema-500: #d0b893;
+  --color-terracota-50: #fdf5f0;
+  --color-terracota-100: #fae6d9;
+  --color-terracota-200: #f4ccba;
+  --color-terracota-300: #eaa888;
+  --color-terracota-400: #dd8055;
+  --color-terracota-500: #c66b3d;
+  --color-terracota-600: #b15630;
+  --color-terracota-700: #90452a;
+  --color-terracota-800: #723a28;
+  --color-terracota-900: #5b3023;
+  --color-oliva-50: #f7f8f1;
+  --color-oliva-100: #eef0e0;
+  --color-oliva-200: #dde1c5;
+  --color-oliva-300: #c2c89f;
+  --color-oliva-400: #a3ab78;
+  --color-oliva-500: #85905c;
+  --color-oliva-600: #6b7a4f;
+  --color-oliva-700: #545f3f;
+  --color-oliva-800: #424a35;
+  --color-oliva-900: #353b2d;
+  --color-granate-50: #fbf3f1;
+  --color-granate-100: #f4ded9;
+  --color-granate-200: #e8bdb5;
+  --color-granate-300: #d79083;
+  --color-granate-400: #bf6256;
+  --color-granate-500: #a9473d;
+  --color-granate-600: #8f3832;
+  --color-granate-700: #722f2b;
+  --color-granate-800: #5c2927;
+  --color-granate-900: #46201f;
+  --color-tinta-50: #f6f4f2;
+  --color-tinta-100: #e8e3de;
+  --color-tinta-200: #cdc4ba;
+  --color-tinta-300: #a89c8e;
+  --color-tinta-400: #7d7164;
+  --color-tinta-500: #5a4f44;
+  --color-tinta-600: #473e35;
+  --color-tinta-700: #362f29;
+  --color-tinta-800: #2d2418;
+  --color-tinta-900: #1f1810;
+
+  --font-serif: "Fraunces", Georgia, serif;
+  --font-sans: "Mulish", system-ui, sans-serif;
+  --container-8xl: 88rem;
+  --container-prose: 68ch;
+  --tracking-tightest: -0.04em;
+
+  --animate-fade-in: fadeIn 0.6s ease-out;
+  --animate-fade-up: fadeUp 0.7s ease-out;
+  --animate-slide-down: slideDown 0.3s ease-out;
+
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  @keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes slideDown {
+    0% { opacity: 0; transform: translateY(-10px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+}
+
+@theme inline {
+  --radius-lg: var(--radius);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: var(--color-crema-100);
+  --foreground: var(--color-tinta-800);
+  --primary: var(--color-terracota-500);
+  --primary-foreground: var(--color-crema-100);
+  --muted: var(--color-crema-200);
+  --muted-foreground: var(--color-tinta-500);
+  --accent: var(--color-crema-200);
+  --border: var(--color-tinta-100);
+  --input: var(--color-tinta-200);
+  --ring: var(--color-oliva-400);
+}
+
+@layer base {
+  *, ::after, ::before { border-color: var(--color-tinta-100); }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-crema-100 text-tinta-800 font-sans antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4, h5, h6 { @apply font-serif; }
+  button { cursor: pointer; }
+}
+
+@utility container-page {
+  @apply mx-auto max-w-8xl px-5 sm:px-8 lg:px-12;
+}
+@utility btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-terracota-500 px-6 py-3 text-sm font-semibold text-crema-100 transition-all duration-300 hover:bg-terracota-600 hover:shadow-lg hover:shadow-terracota-500/20 active:scale-95;
+}
+@utility btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 rounded-full border border-tinta-200 bg-transparent px-6 py-3 text-sm font-semibold text-tinta-700 transition-all duration-300 hover:border-oliva-500 hover:text-oliva-600 active:scale-95;
+}
+@utility btn-ghost {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-tinta-600 transition-colors duration-200 hover:bg-crema-200 hover:text-tinta-800;
+}
+@utility input-field {
+  @apply w-full rounded-xl border border-tinta-200 bg-white/80 px-4 py-3 text-sm text-tinta-800 placeholder:text-tinta-300 transition-all duration-200 focus:border-oliva-400 focus:outline-none focus:ring-2 focus:ring-oliva-400/20;
+}
+@utility chip {
+  @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium transition-all duration-200 cursor-pointer;
+}
+@utility chip-active {
+  @apply bg-terracota-500 text-crema-100 border border-terracota-500;
+}
+@utility chip-inactive {
+  @apply bg-crema-200 text-tinta-600 border border-transparent hover:border-terracota-300 hover:bg-crema-300;
+}
+@utility card-surface {
+  @apply rounded-2xl bg-white shadow-sm ring-1 ring-tinta-100/60 transition-all duration-300;
+}
+@utility text-balance {
+  text-wrap: balance;
+}
+@utility link-underline {
+  @apply relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-terracota-500 after:transition-all after:duration-300 hover:after:w-full;
+}
+@utility scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}
+@utility text-shadow-soft {
+  text-shadow: 0 2px 20px rgba(45, 36, 24, 0.4);
+}
